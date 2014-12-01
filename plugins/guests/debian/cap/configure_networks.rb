@@ -14,7 +14,7 @@ module VagrantPlugins
             # First, remove any previous network modifications
             # from the interface file.
             comm.sudo("sed -e '/^#VAGRANT-BEGIN/,/^#VAGRANT-END/ d' /etc/network/interfaces > /tmp/vagrant-network-interfaces")
-            comm.sudo("su -c 'cat /tmp/vagrant-network-interfaces > /etc/network/interfaces'")
+            comm.sudo("cat /tmp/vagrant-network-interfaces > /etc/network/interfaces")
             comm.sudo("rm -f /tmp/vagrant-network-interfaces")
 
             # Accumulate the configurations to add to the interfaces file as
